@@ -47,6 +47,9 @@
   wireplumber,
   wlsunset,
   libqalculate,
+  ddcutil,
+  glib, # gsettings
+  kdePackages ? {},
   # Python environment
   python3,
   # Icon/sound path resolution
@@ -115,6 +118,8 @@
     wireplumber
     wlsunset
     libqalculate
+    ddcutil
+    glib
     inirPython
   ];
 in
