@@ -68,6 +68,7 @@
       click
       pygobject3
       pycairo
+      python-magic
       kde-material-you-colors
     ]);
 
