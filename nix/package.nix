@@ -182,11 +182,14 @@ in
         defaults/niri/config.kdl dots/.config/niri/config.kdl 2>/dev/null || true
 
       # =====================================================================
-      # Fix scripts with complex shebangs that patchShebangs can't handle
+      # Fix scripts with complex venv-activating shebangs that
+      # patchShebangs can't handle (#!/usr/bin/env -S /bin/sh -c "source ...")
       # =====================================================================
-      if [ -f scripts/hyprland/get_keybinds.py ]; then
-        sed -i '1s|^#!.*|#!/usr/bin/env python3|' scripts/hyprland/get_keybinds.py
-      fi
+      for f in scripts/hyprland/get_keybinds.py scripts/colors/generate_colors_material.py; do
+        if [ -f "$f" ]; then
+          sed -i '1s|^#!.*|#!/usr/bin/env python3|' "$f"
+        fi
+      done
 
       # =====================================================================
       # Also strip /usr/bin/ from non-shebang lines in other file types
