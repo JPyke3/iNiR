@@ -150,6 +150,14 @@ in
         -exec sed -i '/^#!/!s|/usr/bin/||g' {} +
 
       # =====================================================================
+      # Fix IPC routing: strip "-c", "ii" from internal qs IPC calls
+      # QS_CONFIG_PATH is set by the wrapper, so -c ii is unnecessary and
+      # causes shell ID mismatch (55 instances across the codebase)
+      # =====================================================================
+      find . -type f -name "*.qml" \
+        -exec sed -i 's/"qs", "-c", "ii", "ipc"/"qs", "ipc"/g' {} +
+
+      # =====================================================================
       # Patch Python venv wrapper scripts to use Nix python directly
       # =====================================================================
       for f in scripts/thumbnails/thumbgen-venv.sh \
