@@ -124,7 +124,15 @@ in
     src = lib.cleanSource ./..;
 
     nativeBuildInputs = [qt6.wrapQtAppsHook];
-    buildInputs = [qt6.qtbase qt6.qtmultimedia qt6.qtsvg qt6.qtimageformats qt6.qt5compat];
+    buildInputs = [
+      qt6.qtbase
+      qt6.qtmultimedia
+      qt6.qtsvg
+      qt6.qtimageformats
+      qt6.qt5compat
+      kdePackages.kirigami
+      kdePackages.syntax-highlighting
+    ];
     dontBuild = true;
 
     postPatch = ''
