@@ -75,6 +75,7 @@
     ]);
 
   runtimePath = lib.makeBinPath [
+    quickshell # iNiR calls bare "qs" for settings windows, IPC, etc.
     bash
     coreutils
     gnused
