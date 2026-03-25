@@ -69,7 +69,7 @@
       pygobject3
       pycairo
       python-magic
-      kde-material-you-colors
+      # kde-material-you-colors  # broken in nixpkgs (missing python-magic propagated dep); matugen handles color gen
     ]);
 
   runtimePath = lib.makeBinPath [
