@@ -48,7 +48,7 @@
   wlsunset,
   libqalculate,
   ddcutil,
-  glib, # gsettings
+  glib, # gsettings is in glib.bin
   # Python environment
   python3,
   # Icon/sound path resolution
@@ -119,7 +119,7 @@
     wlsunset
     libqalculate
     ddcutil
-    glib
+    glib.bin
     inirPython
   ];
 in
