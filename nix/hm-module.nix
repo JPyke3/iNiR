@@ -47,17 +47,5 @@ in {
     # Symlink shell source so Quickshell can find it via `qs -c ii`
     # Read-only is fine — iNiR stores mutable state in XDG_STATE_HOME/XDG_CACHE_HOME
     xdg.configFile."quickshell/ii".source = "${inir}/share/inir";
-
-    # Frosted glass blur on iNiR layer surfaces
-    # niri-flake structured settings don't expose blur yet, so we use extraConfig
-    programs.niri.extraConfig = ''
-      layer-rule {
-          match namespace=r#"^quickshell:(bar|verticalBar|dock|sidebarLeft|sidebarRight|overlay|overview|clipboardPanel|controlPanel|cheatsheet|settingsOverlay|popup|mediaControls|onScreenDisplay|notificationPopup|altSwitcher|wallpaperSelector|coverflowSelector|wStartMenu|wactionCenter|wWidgets|wNotificationCenter|wClipboard|wAltSwitcher|wOnScreenDisplay|wNotificationPopup)$"#
-          blur {
-              enable true
-              noise 0.01
-          }
-      }
-    '';
   };
 }
