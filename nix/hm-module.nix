@@ -23,14 +23,19 @@ in {
       # Icon themes
       pkgs.papirus-icon-theme
       pkgs.adw-gtk3
+      pkgs.adwaita-icon-theme
       pkgs.hicolor-icon-theme
       pkgs.kdePackages.breeze-icons
 
       # Cursor theme
       pkgs.capitaine-cursors
 
-      # Qt theming
+      # Qt theming — required for QT_QPA_PLATFORMTHEME=kde
+      pkgs.darkly
       pkgs.qt6Packages.qtstyleplugin-kvantum
+      pkgs.kdePackages.plasma-integration
+      pkgs.kdePackages.frameworkintegration
+      pkgs.kdePackages.kdecoration
 
       # Runtime tools (also in PATH via wrapper, but user may want them directly)
       pkgs.cliphist
