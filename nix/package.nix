@@ -155,7 +155,10 @@ in
       # causes shell ID mismatch (55 instances across the codebase)
       # =====================================================================
       find . -type f -name "*.qml" \
-        -exec sed -i 's/"qs", "-c", "ii", "ipc"/"qs", "ipc"/g' {} +
+        -exec sed -i \
+          -e 's/"qs", "-c", "ii", "ipc"/"qs", "ipc"/g' \
+          -e 's|qs -c ii ipc call|qs ipc call|g' \
+          {} +
 
       # =====================================================================
       # Patch Python venv wrapper scripts to use Nix python directly
